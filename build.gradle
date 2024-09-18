@@ -34,6 +34,8 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-devtools'
     implementation 'org.springdoc:springdoc-openapi-ui:1.8.0'
 
+    implementation 'com.github.ben-manes.caffeine:caffeine:3.1.8'
+
     // MapStruct
     implementation 'org.mapstruct:mapstruct:1.6.2'
     annotationProcessor 'org.mapstruct:mapstruct-processor:1.6.2'
@@ -47,6 +49,7 @@ dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-api'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    testImplementation 'org.mockito:mockito-junit-jupiter:5.12.0'
 }
 
 tasks.named('test') {
