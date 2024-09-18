@@ -1,4 +1,5 @@
 package com.linkexperts.userjsonapi;
+
 import com.linkexperts.userjsonapi.domain.model.User;
 import com.linkexperts.userjsonapi.util.Constantes;
 import org.junit.jupiter.api.BeforeEach;
@@ -13,12 +14,11 @@ import reactor.test.StepVerifier;
 import java.util.List;
 
 @SpringBootTest
- class UserServiceTest {
+class UserServiceTest {
 
     @Autowired
     private WebClient.Builder webClientBuilder;
     private WebClient webClient;
-
 
     @BeforeEach
     void setUp() {
@@ -26,9 +26,9 @@ import java.util.List;
     }
 
     @Test
-    void  testGetUsers(){
-        Mono<List<User>> usersMono = webClient.get().
-                uri(Constantes.BASE_URL+Constantes.USERS)
+    void testGetUsers() {
+        Mono<List<User>> usersMono = webClient.get()
+                .uri(Constantes.BASE_URL + Constantes.USERS)
                 .retrieve()
                 .bodyToMono(new ParameterizedTypeReference<List<User>>() {});
 
@@ -36,7 +36,4 @@ import java.util.List;
                 .expectNextMatches(users -> users.size() > 0)
                 .verifyComplete();
     }
-
-
-
 }

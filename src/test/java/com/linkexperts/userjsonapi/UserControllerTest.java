@@ -32,4 +32,13 @@ class UserControllerTest {
                 .expectStatus().isOk()
                 .expectBody(UserDTO.class).isEqualTo(userDTO);
     }
+
+    @Test
+    void testGetUserByIdNotFound() {
+        when(userService.getUserById("2")).thenReturn(Mono.empty());
+
+        webTestClient.get().uri("/users/2")
+                .exchange()
+                .expectStatus().isNotFound();
+    }
 }
