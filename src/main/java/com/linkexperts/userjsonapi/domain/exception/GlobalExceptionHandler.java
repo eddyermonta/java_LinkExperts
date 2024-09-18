@@ -1,4 +1,4 @@
-package com.linkexperts.userjsonapi.exception;
+package com.linkexperts.userjsonapi.domain.exception;
 
 import org.springframework.web.bind.annotation.ControllerAdvice;
 
