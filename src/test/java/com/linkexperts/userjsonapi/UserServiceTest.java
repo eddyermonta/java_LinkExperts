@@ -30,10 +30,10 @@ import java.util.List;
         Mono<List<User>> usersMono = webClient.get().
                 uri("https://jsonplaceholder.typicode.com/users")
                 .retrieve()
-                .bodyToMono(new ParameterizedTypeReference<List<User>>() {});
+                .bodyToMono(new ParameterizedTypeReference<>(){});
 
         StepVerifier.create(usersMono)
-                .expectNextMatches(users -> users.size() > 0)
+                .expectNextMatches(users -> !users.isEmpty())
                 .verifyComplete();
     }
 }
